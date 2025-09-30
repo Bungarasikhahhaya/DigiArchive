@@ -11,11 +11,13 @@ const Navbar = () => {
   return (
     <nav className="navbar" id="navbar">
       <div className="nav-container">
-        <a href="#" className="logo">
+        {/* Ganti <a> dengan <button> untuk logo */}
+        <button className="logo" onClick={() => window.location.href = "/"} aria-label="Kembali ke halaman utama">
           <i className="fas fa-archive"></i> DigiArchive
-        </a>
+        </button>
         
         <div className={`nav-links ${menuOpen ? 'open' : ''}`} id="navLinks">
+          {/* Pastikan ID tujuan sesuai di halaman */}
           <a href="#fitur">Fitur</a>
           <a href="#tim">Tim</a>
           <a href="#tentang">Tentang</a>

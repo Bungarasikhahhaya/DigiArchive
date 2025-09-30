@@ -1,12 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Impor komponen
 import Navbar from './Component/Navbar';
 import Hero from './Component/Hero';
 import Features from './Component/Features';
 import Team from './Component/Team';
 import About from './Component/About';
-import Dashboard from './Component/Dashboard';
+import Register from './Component/Register';  
+import Login from './Component/Login';  
+import Dashboard from './Component/Dashboard';  // Menambahkan halaman Dashboard
 
 import './style.css';
 import './Dashboard.css';
@@ -15,7 +18,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Landing Page */}
+        {/* Halaman Landing Page */}
         <Route
           path="/"
           element={
@@ -28,8 +31,14 @@ const App = () => {
             </>
           }
         />
+        
+        {/* Halaman Register */}
+        <Route path="/register" element={<Register />} /> 
 
-        {/* Dashboard */}
+        {/* Halaman Login */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Halaman Dashboard */}
         <Route
           path="/dashboard"
           element={
