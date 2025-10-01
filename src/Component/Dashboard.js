@@ -1,7 +1,14 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useNavigate } from "react-router-dom"; 
 
 export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    
+  navigate("/"); // balik ke landing page
+  };
   return (
     <div className="dashboard-container flex">
       {/* Sidebar */}
@@ -26,7 +33,9 @@ export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni
           </div>
         </div>
         <div className="sidebar-footer p-4">
-          <button className="logout-btn w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 p-2 rounded-md">
+          <button 
+            onClick={handleLogout} 
+            className="logout-btn w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 p-2 rounded-md">
             <i className="fas fa-sign-out-alt"></i> Logout
           </button>
         </div>
