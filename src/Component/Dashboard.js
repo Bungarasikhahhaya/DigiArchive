@@ -1,14 +1,17 @@
 import React from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Inisialisasi navigate
 
   const handleLogout = () => {
-    
-  navigate("/"); // balik ke landing page
+    navigate("/"); // Balik ke landing page setelah logout
   };
+
+  const handleGoToArsip = () => {
+    navigate("/Archive"); // Mengarahkan ke halaman arsip
+  };
+
   return (
     <div className="dashboard-container flex">
       {/* Sidebar */}
@@ -24,7 +27,10 @@ export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni
             <a href="/dashboard" className="nav-item active p-3 flex items-center gap-2 bg-indigo-600 rounded-md m-2">
               <i className="fa-solid fa-layer-group"></i> Dashboard
             </a>
-            <a href="/arsip" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
+            <a
+              onClick={handleGoToArsip} // Gunakan onClick untuk mengarahkan ke halaman arsip
+              className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2"
+            >
               <i className="fas fa-folder-open"></i> Daftar Arsip
             </a>
             <a href="/profile" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
@@ -33,9 +39,10 @@ export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni
           </div>
         </div>
         <div className="sidebar-footer p-4">
-          <button 
-            onClick={handleLogout} 
-            className="logout-btn w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 p-2 rounded-md">
+          <button
+            onClick={handleLogout}
+            className="logout-btn w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 p-2 rounded-md"
+          >
             <i className="fas fa-sign-out-alt"></i> Logout
           </button>
         </div>
@@ -57,17 +64,26 @@ export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni
 
           {/* Dashboard Cards */}
           <div className="dashboard-cards flex flex-wrap gap-6 mb-10">
-            <div className="dashboard-card flex-1 min-w-[180px] text-center rounded-2xl shadow p-8 text-white" style={{background:"linear-gradient(135deg,#6a82fb 0%,#5b5fc7 100%)"}}>
+            <div
+              className="dashboard-card flex-1 min-w-[180px] text-center rounded-2xl shadow p-8 text-white"
+              style={{ background: "linear-gradient(135deg,#6a82fb 0%,#5b5fc7 100%)" }}
+            >
               <div className="dashboard-card-value text-4xl font-bold mb-2">{totalArsip}</div>
               <div className="dashboard-card-label text-lg opacity-90">Total Arsip</div>
             </div>
 
-            <div className="dashboard-card flex-1 min-w-[180px] text-center rounded-2xl shadow p-8 text-white" style={{background:"linear-gradient(135deg,#6a82fb 0%,#5b5fc7 100%)"}}>
+            <div
+              className="dashboard-card flex-1 min-w-[180px] text-center rounded-2xl shadow p-8 text-white"
+              style={{ background: "linear-gradient(135deg,#6a82fb 0%,#5b5fc7 100%)" }}
+            >
               <div className="dashboard-card-value text-4xl font-bold mb-2">{totalArsipHariIni}</div>
               <div className="dashboard-card-label text-lg opacity-90">Arsip Hari Ini</div>
             </div>
 
-            <div className="dashboard-card flex-1 min-w-[180px] text-center rounded-2xl shadow p-8 text-white" style={{background:"linear-gradient(135deg,#6a82fb 0%,#5b5fc7 100%)"}}>
+            <div
+              className="dashboard-card flex-1 min-w-[180px] text-center rounded-2xl shadow p-8 text-white"
+              style={{ background: "linear-gradient(135deg,#6a82fb 0%,#5b5fc7 100%)" }}
+            >
               <div className="dashboard-card-value text-4xl font-bold mb-2">{arsipBulanIni}</div>
               <div className="dashboard-card-label text-lg opacity-90">Arsip Bulan Ini</div>
             </div>
