@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../Register.css'; // Assuming the same CSS file
+import { useNavigate } from 'react-router-dom'; 
+import '../Register.css'; 
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,8 @@ const Register = () => {
   });
 
   const [errors, setErrors] = useState([]);
-  
+  const navigate = useNavigate(); // Membuat instance navigate untuk pengalihan
+
   // Handle input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,18 +27,19 @@ const Register = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form validation and submission logic here
-    // Example: Check if passwords match and other validation
+    // Validasi form (misalnya, memeriksa apakah password dan konfirmasi password cocok)
     if (formData.password !== formData.password_confirmation) {
       setErrors(['Passwords do not match.']);
       return;
     }
 
-    // Proceed with form submission (e.g., API call)
-    // Example: 
-    // axios.post('register', formData)
-    //   .then(response => { /* Handle success */ })
-    //   .catch(error => { /* Handle error */ });
+    // Anda bisa mengganti bagian ini dengan logika pengiriman data ke backend (misalnya, menggunakan axios)
+    // Jika registrasi berhasil, arahkan pengguna ke halaman dashboard
+    // Misalnya, mengirimkan data ke server dan kemudian melakukan navigasi ke dashboard:
+
+    // Contoh pengalihan setelah registrasi berhasil
+    setErrors([]); // Hapus error setelah validasi sukses
+    navigate('/dashboard'); // Pengguna diarahkan ke halaman Dashboard
   };
 
   return (
@@ -53,7 +56,8 @@ const Register = () => {
           <form className="register-form" onSubmit={handleSubmit}>
             <h2>Daftar Akun</h2>
             <p className="subtitle">Buat akun DigiArchive baru</p>
-            
+
+            {/* Menampilkan error jika ada */}
             {errors.length > 0 && (
               <div className="alert">
                 <ul>

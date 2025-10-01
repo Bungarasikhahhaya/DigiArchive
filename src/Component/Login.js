@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate dari react-router-dom
 import '../Register.css'; // Pastikan Anda menambahkan CSS sesuai
 
 const Login = () => {
@@ -6,6 +7,9 @@ const Login = () => {
   const [npm, setNpm] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+  
+  // Inisialisasi useNavigate untuk pengalihan
+  const navigate = useNavigate();
 
   // Menangani perubahan input
   const handleInputChange = (e) => {
@@ -20,14 +24,21 @@ const Login = () => {
   // Menangani pengiriman formulir
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Menangani validasi formulir atau API call untuk login
+    
+    // Menangani validasi formulir
     if (!npm || !password) {
       setErrors(['NPM dan Password harus diisi']);
-    } else {
-      setErrors([]);
-      // Kirim data ke server, misalnya dengan fetch atau axios
-      console.log({ npm, password });
+      return;
     }
+
+    setErrors([]); // Menghapus error setelah validasi sukses
+    
+    // Simulasi pengiriman data ke server (misalnya dengan fetch atau axios)
+    console.log({ npm, password });
+    
+    // Setelah login berhasil, arahkan pengguna ke halaman dashboard
+    // Misalnya, setelah login berhasil, redirect ke halaman dashboard
+    navigate('/dashboard'); // Pengguna diarahkan ke halaman Dashboard
   };
 
   return (
@@ -44,7 +55,7 @@ const Login = () => {
           <form className="register-form" onSubmit={handleSubmit}>
             <h2>Login</h2>
             <p className="subtitle">Masuk ke akun DigiArchive Anda</p>
-            
+
             {/* Menampilkan error jika ada */}
             {errors.length > 0 && (
               <div className="alert">
@@ -55,7 +66,7 @@ const Login = () => {
                 </ul>
               </div>
             )}
-            
+
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="npm">NPM</label>
