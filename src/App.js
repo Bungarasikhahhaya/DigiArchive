@@ -9,7 +9,8 @@ import Team from './Component/Team';
 import About from './Component/About';
 import Register from './Component/Register';  
 import Login from './Component/Login';  
-import Dashboard from './Component/Dashboard';  // Menambahkan halaman Dashboard
+import Dashboard from './Component/Dashboard';
+import Archive from './Component/Archive';
 
 import './style.css';
 import './Dashboard.css';
@@ -49,6 +50,9 @@ const App = () => {
             />
           }
         />
+
+        {/* Halaman Arsip */}
+        <Route path="/archive" element={<Archive />} />
       </Routes>
     </Router>
   );
