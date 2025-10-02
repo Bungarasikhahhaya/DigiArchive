@@ -10,7 +10,8 @@ import About from './Component/About';
 import Register from './Component/Register';  
 import Login from './Component/Login';  
 import Dashboard from './Component/Dashboard';
-import Archive from './Component/Archive';
+import Archive from './Component/Archive'; // Komponen Archive untuk Arsip
+import Profile from './Component/Profile'; // Komponen Profile untuk Profil Pengguna
 
 import './style.css';
 import './Dashboard.css';
@@ -52,7 +53,11 @@ const App = () => {
         />
 
         {/* Halaman Arsip */}
-        <Route path="/archive" element={<Archive />} />
+        <Route path="/arsip" element={<Archive />} />  {/* Menggunakan Archive untuk Arsip */}
+
+        {/* Halaman Profile */}
+        <Route path="/profile" element={<Profile />} /> {/* Menggunakan Profile untuk Profile */}
+
       </Routes>
     </Router>
   );
