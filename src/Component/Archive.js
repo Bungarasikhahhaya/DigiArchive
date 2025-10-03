@@ -180,7 +180,7 @@ const Archive = ({ archives = [], success, errors = [], onLogout, onAddArchive, 
 
       {/* Modal Tambah Arsip */}
       {showModal && (
-        <div className="modal-overlay">
+        <div className={`modal-overlay ${showModal ? 'active' : ''}`}>
           <div className="modal-content">
             <div className="modal-header">
               <h2 className="modal-title">Tambah Arsip</h2>
