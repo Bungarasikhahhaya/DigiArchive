@@ -247,6 +247,26 @@ body {
     background-size: 1.1em;
 }
 
+/* Make the search button visually match the category pill */
+.search-container form button.btn-primary,
+.search-container > button.btn-primary {
+    padding: 1rem 1.6rem;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: auto;
+}
+
+/* Ensure the add button in header matches the pill look */
+.archive-header .btn-primary {
+    padding: 0.9rem 1.8rem;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
 /* Table Styles */
 .table-container {
     overflow-x: auto;
@@ -413,19 +433,30 @@ body {
 }
 
 .modal-close {
-    background: none;
+    background: rgba(246, 212, 217, 0.65); /* soft pink */
     border: none;
-    font-size: 2rem;
-    color: #bbb;
+    font-size: 1.1rem;
+    color: #e11d48; /* red tone */
     cursor: pointer;
-    transition: color 0.3s;
-    padding: 0.5rem;
-    border-radius: 50%;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease;
+    box-shadow: 0 6px 18px rgba(31,41,55,0.06);
 }
 
 .modal-close:hover {
-    color: var(--danger);
-    background: #fff0f0;
+    background: rgba(246, 180, 190, 0.95);
+    transform: translateY(-2px);
+}
+
+.modal-close:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(225,29,72,0.12);
 }
 
 .form-group {
