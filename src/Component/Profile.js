@@ -1,5 +1,5 @@
 import React, { useState } from "react";               // Import useState
-import { useNavigate } from "react-router-dom";        // Import useNavigate
+import { useNavigate, Link } from "react-router-dom";        // Import useNavigate and Link
 import "../Profile.css";
 
 const Profile = ({ user = {}, successMessage, errorMessage, handleLogout, handlePasswordChange }) => {
@@ -48,6 +48,7 @@ const Profile = ({ user = {}, successMessage, errorMessage, handleLogout, handle
         </div>
         <div className="sidebar-nav">
           <a href="/dashboard" className="nav-item"><i className="fa-solid fa-layer-group"></i> Dashboard</a>
+          <Link to="/tambah-dokumen" className="nav-item"><i className="fa fa-camera"></i> Tambah Dokumen</Link>
           <a href="/archive" className="nav-item"><i className="fas fa-folder-open"></i> Daftar Arsip</a>
           <a href="/recycle-bin" className="nav-item"><i className="fas fa-trash"></i> Recycle Bin</a>
           <a href="/profile" className="nav-item active"><i className="fas fa-user"></i> Profile</a>

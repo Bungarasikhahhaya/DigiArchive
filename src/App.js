@@ -11,9 +11,10 @@ import About from './Component/About';
 import Register from './Component/Register';  
 import Login from './Component/Login';  
 import Dashboard from './Component/Dashboard';
+import AddDocument from './Component/AddDocument'; // Komponen AddDocument untuk Tambah Dokumen
 import Archive from './Component/Archive';
-import Profile from './Component/Profile';
 import DeletedDocuments from './Component/DeleteDocument';
+import Profile from './Component/Profile';
 
 import './style.css';
 import './Dashboard.css';
@@ -130,6 +131,9 @@ const App = () => {
             />
           }
         />
+
+        {/* Halaman Tambah Dokumen  */}
+        <Route path="/tambah-dokumen" element={<AddDocument />} />
 
         {/* Halaman Arsip */}
         <Route path="/arsip" element={<Archive archives={archives} onDeleteArchive={handleDeleteArchive} onAddArchive={handleAddArchive} />} />  {/* Menggunakan Archive untuk Arsip */}

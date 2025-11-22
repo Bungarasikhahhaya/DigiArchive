@@ -25,6 +25,9 @@ export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni
             <Link to="/dashboard" className="nav-item active p-3 flex items-center gap-2 bg-indigo-600 rounded-md m-2">
               <i className="fa-solid fa-layer-group"></i> Dashboard
             </Link>
+            <Link to="/tambah-dokumen" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
+              <i className="fa fa-camera"></i> Tambah Dokumen
+            </Link>
             <Link to="/arsip" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
               <i className="fas fa-folder-open"></i> Daftar Arsip
             </Link>
