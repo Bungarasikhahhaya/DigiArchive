@@ -28,6 +28,9 @@ export default function Dashboard({ totalArsip, totalArsipHariIni, arsipBulanIni
             <Link to="/arsip" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
               <i className="fas fa-folder-open"></i> Daftar Arsip
             </Link>
+            <Link to="/recycle-bin" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
+              <i className="fas fa-trash"></i> Recycle Bin
+            </Link>
             <Link to="/profile" className="nav-item p-3 flex items-center gap-2 hover:bg-indigo-500 rounded-md m-2">
               <i className="fas fa-user"></i> Profile
             </Link>

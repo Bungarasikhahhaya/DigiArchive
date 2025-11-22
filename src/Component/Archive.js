@@ -33,6 +33,9 @@ const Archive = ({ archives = [], success, errors = [], onLogout, onAddArchive, 
     setShowEdit(false);
   };
 
+  // Delete confirmation state
+  const [deleteTarget, setDeleteTarget] = useState(null);
+
   return (
     <div className="app">
       {/* Sidebar */}
@@ -44,6 +47,7 @@ const Archive = ({ archives = [], success, errors = [], onLogout, onAddArchive, 
         <div className="sidebar-nav">
           <Link to="/dashboard" className="nav-item"><i className="fa-solid fa-layer-group"></i> Dashboard</Link>
           <Link to="/archive" className="nav-item active"><i className="fas fa-folder-open"></i> Daftar Arsip</Link>
+          <Link to="/recycle-bin" className="nav-item"><i className="fas fa-trash"></i> Recycle Bin</Link>
           <Link to="/profile" className="nav-item"><i className="fas fa-user"></i> Profile</Link>
         </div>
         <div className="sidebar-footer">
@@ -153,7 +157,7 @@ const Archive = ({ archives = [], success, errors = [], onLogout, onAddArchive, 
                           <button
                             type="button"
                             className="btn-action delete"
-                            onClick={() => onDeleteArchive && onDeleteArchive(archive.id)}
+                            onClick={() => setDeleteTarget(archive)}
                           >
                             <i className="fas fa-trash"></i>
                           </button>
@@ -217,7 +221,7 @@ const Archive = ({ archives = [], success, errors = [], onLogout, onAddArchive, 
 
       {/* Modal Detail Arsip */}
       {showDetail && selectedArchive && (
-        <div className="modal-overlay">
+        <div className={`modal-overlay ${showDetail ? 'active' : ''}`}>
           <div className="modal-content">
             <div className="modal-header">
               <h2 className="modal-title">Detail Arsip</h2>
@@ -236,9 +240,28 @@ const Archive = ({ archives = [], success, errors = [], onLogout, onAddArchive, 
         </div>
       )}
 
+      {/* Modal Konfirmasi Hapus */}
+      {deleteTarget && (
+        <div className={`modal-overlay active`}>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2 className="modal-title">Hapus Arsip</h2>
+              <button className="modal-close" onClick={() => setDeleteTarget(null)}><i className="fas fa-times"></i></button>
+            </div>
+            <div className="modal-body">
+              <p>Yakin ingin menghapus arsip "{deleteTarget.judul}"? Aksi ini akan memindahkan arsip ke Recycle Bin.</p>
+            </div>
+            <div className="modal-actions">
+              <button className="btn-cancel" onClick={() => setDeleteTarget(null)}>Batal</button>
+              <button className="btn-primary" onClick={() => { if (onDeleteArchive) onDeleteArchive(deleteTarget.id); setDeleteTarget(null); }}>Yakin</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Modal Edit Arsip */}
       {showEdit && selectedArchive && (
-        <div className="modal-overlay">
+        <div className={`modal-overlay ${showEdit ? 'active' : ''}`}>
           <div className="modal-content">
             <div className="modal-header">
               <h2 className="modal-title">Edit Arsip</h2>
