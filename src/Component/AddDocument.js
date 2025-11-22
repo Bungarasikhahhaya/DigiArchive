@@ -6,10 +6,10 @@ export default function AddDocument() {
   const [stream, setStream] = useState(null);
   const [photoDataUrl, setPhotoDataUrl] = useState('');
   const [error, setError] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Uncategorized');
+  const [selectedCategory, setSelectedCategory] = useState('Kategori');
   const navigate = useNavigate();
 
-  const categories = ['Invoice','Surat','Kontrak','KTP/ID','Laporan','Nota','Uncategorized'];
+  const categories = ['Proposal','Keuangan','Rapat','Surat','Lainnya'];
 
   const startCamera = async () => {
     setError('');
@@ -103,6 +103,7 @@ export default function AddDocument() {
           <Link to="/dashboard" className="nav-item"><i className="fa-solid fa-layer-group"></i> Dashboard</Link>
           <Link to="/tambah-dokumen" className="nav-item active"><i className="fa fa-camera"></i> Tambah Dokumen</Link>
           <Link to="/arsip" className="nav-item"><i className="fas fa-folder-open"></i> Daftar Arsip</Link>
+          <Link to="/recycle-bin" className="nav-item"><i className="fas fa-trash"></i> Recycle Bin</Link>
           <Link to="/profile" className="nav-item"><i className="fas fa-user"></i> Profile</Link>
         </div>
         <div className="sidebar-footer">
@@ -124,7 +125,7 @@ export default function AddDocument() {
         <div className="content-card p-6">
           <div className="add-document-page p-0 bg-transparent">
             <h2 className="text-2xl font-semibold mb-3">Tambah Dokumen (Foto)</h2>
-            <p className="text-sm text-gray-600 mb-4">Ambil foto dokumen langsung dari kamera perangkat atau unggah gambar, lalu pilih kategori secara manual.</p>
+            <p className="text-sm text-gray-600 mb-4">Ambil foto dokumen langsung dari kamera atau unggah gambar.</p>
 
             <div className="add-document-controls">
               {!stream && <button onClick={startCamera} className="btn btn-primary">Buka Kamera</button>}

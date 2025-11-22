@@ -18,7 +18,8 @@ export default function DeletedDocuments({ deletedDocs = [], onRestore = () => {
         </div>
         <div className="sidebar-nav">
           <Link to="/dashboard" className="nav-item"><i className="fa-solid fa-layer-group"></i> Dashboard</Link>
-          <Link to="/archive" className="nav-item"><i className="fas fa-folder-open"></i> Daftar Arsip</Link>
+          <Link to="/tambah-dokumen" className="nav-item"><i className="fa fa-camera"></i> Tambah Dokumen</Link>
+          <Link to="/arsip" className="nav-item"><i className="fas fa-folder-open"></i> Daftar Arsip</Link>
           <Link to="/recycle-bin" className="nav-item active"><i className="fas fa-trash"></i> Recycle Bin</Link>
           <Link to="/profile" className="nav-item"><i className="fas fa-user"></i> Profile</Link>
         </div>
